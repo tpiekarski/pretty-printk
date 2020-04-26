@@ -23,6 +23,8 @@ inside the code and on the other one it should increase readability when running
   - Create a simple macro for *walking* through code to find the lines which do not work - a Walker :)
   - Output surroundings (like some basic data around a function or something)
   - Shortcut output of conditions and their result
+- Integration features
+  - Snippets for a few major editors like emacs, vim and Visual Studio Code
 - Features for testing and building
   - Establish a test (probably by comparing pre-processed include files with a reference) pipeline
   - Establish a build pipeline for different major Kernel versions

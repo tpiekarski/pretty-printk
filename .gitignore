@@ -1,0 +1,25 @@
+# Objects and libraries
+*.a
+*.elf
+*.ko
+*.la
+*.lib
+*.lo
+*.o
+*.obj
+
+# Kernel Module Compilation
+.tmp_versions/
+*.cmd
+*.mod*
+dkms.conf
+Mkfile.old
+Module.symvers
+modules.order
+
+# IDEs and editors
+.vscode
+*.bak
+*.code-workspace
+*.swp
+~*

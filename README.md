@@ -21,7 +21,6 @@ inside the code and on the other one it should increase readability when running
   - Establish a convenient switch for debug messages
   - Prettifier printing of variables i.e. in a ASCII-based table including the variable name and its data
   - Create a simple macro for *walking* through code to find the lines which do not work - a Walker :)
-  - Output surroundings (like some basic data around a function or something)
   - Shortcut output of conditions and their result
 - Integration features
   - Snippets for a few major editors like emacs, vim and Visual Studio Code
@@ -30,7 +29,8 @@ inside the code and on the other one it should increase readability when running
   - Establish a build pipeline for different major Kernel versions
   - Establish a build pipeline for different architectures
 - Advanced and optional features
-  - Integrated and more convenient throttling for printing to avoid flooding ring buffer
+  - Output surroundings (like some basic data around a function or something)
+  - Integrated a convenient throttling for printing to avoid flooding ring buffer
   - Colorize output with short little Macros, like red(), green(), blue()
   - Macro for generate little banners
   - Provide a accompanying Kernel Module to illustrate usage

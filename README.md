@@ -1,6 +1,8 @@
 # pretty-printk
 
-## Overview
+[Overview](#overview) / [Usage, Testing and Playing](#usage-testing-playing) / [Features](#features) / [License](#license)
+
+## [Overview](#overview)
 
 Debugging the Linux Kernel in a way most developers are familiar with is challenging. Setting breakpoints,
 stepping through lines of code and watching out for the last important variable to change their value is hard.
@@ -11,9 +13,24 @@ When developing for the Web it is quite common to pretty such output and I was w
 chances and pretty the *printk-ing* inside the Kernel. The goal is to ease on the hand the process of printing
 inside the code and on the other one it should increase readability when running dmesg.
 
-## Concept
+## [Usage, Testing and Playing](#usage-testing-playing)
 
-### Features
+```c
+#include "pretty_printk.h"
+
+// [...]
+
+// todo: show different features
+
+// [...]
+
+```
+
+For testing, playing and looking at the features the repository provides a demo module *pretty_printk_demo* to
+illustrate the different features. For building just call ```make``` and use the common way to insert/remove 
+modules.
+
+## [Features](#features)
 
 - Basic features
   - Metadata to every call of printk (like module name, function name and current line)
@@ -34,3 +51,18 @@ inside the code and on the other one it should increase readability when running
   - Colorize output with short little Macros, like red(), green(), blue()
   - Macro for generate little banners
   - Provide a accompanying Kernel Module to illustrate usage
+
+## [License](#license)
+
+pretty-printk is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+pretty-printk is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with pretty-printk. If not, see [<https://www.gnu.org/licenses/>](https://www.gnu.org/licenses/).

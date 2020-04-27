@@ -38,6 +38,14 @@ static int __init pretty_printk_demo_init(void)
 	// todo: implement some demo how to pretty printk-ing things
 	printk(KERN_INFO "%s: %s\n", THIS_MODULE->name, _LINUX_PP_MESSAGE);
 
+	pp_emerg("Emergency severity\n");
+	pp_crit("Critical severity\n");
+	pp_err("Error severity\n");
+	pp_warn("Warning severity\n");
+	pp_note("Notice severity\n");
+	pp_info("Information severity\n");
+	pp_debug("Debugging severity\n");
+
 	return 0;
 }
 module_init(pretty_printk_demo_init);

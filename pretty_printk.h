@@ -29,4 +29,19 @@
 
 #define _LINUX_PP_MESSAGE "This is a demo module for pretty printk-ing"
 
+// todo: How to pass severity into this?
+/* 
+#define _pp_emerg(format, ...)                                                  \
+	printk(KERN_EMERG "%s: " #format "\n", THIS_MODULE->name, ##__VA_ARGS__)
+*/
+
+#define pp_emerg(args...) printk(KERN_EMERG args)
+#define pp_alert(args...) printk(KERN_ALERT args)
+#define pp_crit(args...) printk(KERN_CRIT args)
+#define pp_err(args...) printk(KERN_ERR args)
+#define pp_warn(args...) printk(KERN_WARNING args)
+#define pp_note(args...) printk(KERN_NOTICE args)
+#define pp_info(args...) printk(KERN_INFO args)
+#define pp_debug(args...) printk(KERN_DEBUG args)
+
 #endif

@@ -35,8 +35,17 @@ MODULE_VERSION("0.1");
 
 static int __init pretty_printk_demo_init(void)
 {
-	// todo: implement some demo how to pretty printk-ing things
-	printk(KERN_INFO "%s: %s\n", THIS_MODULE->name, _LINUX_PP_MESSAGE);
+	// Internal macro
+	_pp(KERN_INFO, "Internal Pre-processing Macro...");
+
+	// External macros
+	pp_emerg("Emergency severity");
+	pp_crit("Critical severity");
+	pp_err("Error severity");
+	pp_warn("Warning severity");
+	pp_note("Notice severity");
+	pp_info("Information severity");
+	pp_debug("Debugging severity");
 
 	return 0;
 }

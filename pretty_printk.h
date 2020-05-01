@@ -25,8 +25,20 @@
 #ifndef _LINUX_PRETTY_PRINTK_H
 #define _LINUX_PRETTY_PRINTK_H
 
-// todo: print a lot of things in (more or less) pretty way
+#include <linux/kern_levels.h>
+#include <linux/printk.h>
 
-#define _LINUX_PP_MESSAGE "This is a demo module for pretty printk-ing"
+// todo: Handle possible empty THIS_MODULE
+#define _pp(severity, format, args...)                                         \
+	printk(severity "%s:" #format "\n", THIS_MODULE->name, ##args)
+
+#define pp_emerg(args...) _pp(KERN_EMERG, args)
+#define pp_alert(args...) _pp(KERN_ALERT, args)
+#define pp_crit(args...) _pp(KERN_CRIT, args)
+#define pp_err(args...) _pp(KERN_ERR, args)
+#define pp_warn(args...) _pp(KERN_WARNING, args)
+#define pp_note(args...) _pp(KERN_NOTICE, args)
+#define pp_info(args...) _pp(KERN_INFO, args)
+#define pp_debug(args...) _pp(KERN_DEBUG, args)
 
 #endif

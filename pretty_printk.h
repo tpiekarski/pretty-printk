@@ -28,9 +28,16 @@
 #include <linux/kern_levels.h>
 #include <linux/printk.h>
 
-// todo: Handle possible empty THIS_MODULE
 #define _pp(severity, format, args...)                                         \
-	printk(severity "%s:" #format "\n", THIS_MODULE->name, ##args)
+	printk(severity "%s: " #format "\n", THIS_MODULE->name, ##args)
+
+#define __FILENAME__                                                           \
+	(strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
+
+#define _pp_debug(format, args...)                                             \
+	printk(KERN_DEBUG "%s (%s @ %s, %i): " #format "\n",                   \
+	       THIS_MODULE->name, __FUNCTION__, __FILENAME__, __LINE__,        \
+	       ##args)
 
 #define pp_emerg(args...) _pp(KERN_EMERG, args)
 #define pp_alert(args...) _pp(KERN_ALERT, args)
@@ -39,6 +46,7 @@
 #define pp_warn(args...) _pp(KERN_WARNING, args)
 #define pp_note(args...) _pp(KERN_NOTICE, args)
 #define pp_info(args...) _pp(KERN_INFO, args)
-#define pp_debug(args...) _pp(KERN_DEBUG, args)
+
+#define pp_debug(args...) _pp_debug(args)
 
 #endif

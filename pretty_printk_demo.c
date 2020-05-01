@@ -35,17 +35,24 @@ MODULE_VERSION("0.1");
 
 static int __init pretty_printk_demo_init(void)
 {
-	// Internal macro
-	_pp(KERN_INFO, "Internal Pre-processing Macro...");
-
-	// External macros
+	// External macros for shortcutting severity levels
+	// Common Metadata (module name)
 	pp_emerg("Emergency severity");
 	pp_crit("Critical severity");
 	pp_err("Error severity");
 	pp_warn("Warning severity");
 	pp_note("Notice severity");
 	pp_info("Information severity");
+
+	// Extended Metadata (function, filename and line number)
 	pp_debug("Debugging severity");
+
+	// Internal macro
+	_pp(KERN_INFO, "Internal Macro...");
+	_pp_debug("Internal Macro, Extended meta data for debugging");
+
+	pp_info("Checking arguments, %s and %i", "char", 42);
+	pp_debug("Checking arguments, %s and %i", "char", 42);
 
 	return 0;
 }

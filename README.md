@@ -1,6 +1,7 @@
 # pretty-printk
 
 [Overview](#overview) / [Usage, Testing and Playing](#usage-testing-playing) / [Features](#features) / [License](#license)
+/ [Links](#links)
 
 ## [Overview](#overview)
 
@@ -20,10 +21,15 @@ inside the code and on the other one it should increase readability when running
 
 // [...]
 
-// todo: show different features
+pp_warn("Shortcut for severity level and flushing '\n' character");
+pp_debug("Extended metadata like function name, file name and line number while printk-ing");
 
 // [...]
+```
 
+```sh
+[ 3009.387138] pretty_printk_demo: "Shortcut for severity level and flushing '\n' character"
+[ 3009.387139] pretty_printk_demo (pretty_printk_demo_init @ pretty_printk_demo.c, 58): "Extended metadata like function name, file name and line number while printk-ing"
 ```
 
 For testing, playing and looking at the features the repository provides a demo module *pretty_printk_demo* to
@@ -66,3 +72,8 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with pretty-printk. If not, see [<https://www.gnu.org/licenses/>](https://www.gnu.org/licenses/).
+
+## [Links](#links)
+
+- GNU, GCC, [The C Preprocessor](https://gcc.gnu.org/onlinedocs/cpp/index.html#SEC_Contents)
+- Stack Overflow, [__FILE__ macro shows full path](https://stackoverflow.com/questions/8487986/file-macro-shows-full-path)

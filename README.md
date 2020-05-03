@@ -22,14 +22,14 @@ inside the code and on the other one it should increase readability when running
 // [...]
 
 pp_warn("Shortcut for severity level and flushing '\n' character");
-pp_debug("Extended metadata like function name, file name and line number while printk-ing");
+pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
 
 // [...]
 ```
 
 ```sh
-[ 3009.387138] pretty_printk_demo: "Shortcut for severity level and flushing '\n' character"
-[ 3009.387139] pretty_printk_demo (pretty_printk_demo_init @ pretty_printk_demo.c, 58): "Extended metadata like function name, file name and line number while printk-ing"
+[ 8204.477771] pretty_printk_demo: "Shortcut for severity level and flushing '\n' character"
+[ 8204.477773] pretty_printk_demo (pretty_printk_demo_init @ pretty_printk_demo.c, 62): "Extended metadata while printk-ing with debug=1 or PP_DEBUG"
 ```
 
 For testing, playing and looking at the features the repository provides a demo module *pretty_printk_demo* to

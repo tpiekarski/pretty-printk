@@ -44,15 +44,22 @@ static int __init pretty_printk_demo_init(void)
 	pp_note("Notice severity");
 	pp_info("Information severity");
 
+	// Appending multiple arguments
+	pp_emerg("Emergency, checking arguments, %s and %i", "AAA", 11);
+	pp_crit("Critical, checking arguments, %s and %i", "BBB", 22);
+	pp_err("Error, checking arguments, %s and %i", "CCC", 33);
+	pp_warn("Warning, checking arguments, %s and %i", "DDD", 44);
+	pp_note("Notice, checking arguments, %s and %i", "EEE", 55);
+	pp_info("Information, checking arguments, %s and %i", "FFF", 66);
+
 	// Extended Metadata (function, filename and line number)
+	// pp_debug will only print when _PP_DEBUG is defined
 	pp_debug("Debugging severity");
+	pp_debug("Debuggin, checking arguments, %s and %i", "char", 42);
 
-	// Internal macro
-	_pp(KERN_INFO, "Internal Macro...");
-	_pp_debug("Internal Macro, Extended meta data for debugging");
-
-	pp_info("Checking arguments, %s and %i", "char", 42);
-	pp_debug("Checking arguments, %s and %i", "char", 42);
+	// Output for README.md
+	pp_warn("Shortcut for severity level and flushing '\n' character");
+	pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
 
 	return 0;
 }

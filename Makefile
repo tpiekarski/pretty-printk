@@ -22,10 +22,14 @@
 # 
 #
 
-SHELL:=/bin/bash
+SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
+include $(SELF_DIR)/debug.mk
+
 BUILD=/lib/modules/$(shell uname -r)/build
-ccflags-y := -Wall
+SHELL:=/bin/bash
+ccflags-y := -std=gnu99 -Wall -Wno-declaration-after-statement $(DEBUG_FLAGS)
 obj-m += pretty_printk_demo.o
+
 
 all: license clean demo
 

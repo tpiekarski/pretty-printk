@@ -24,7 +24,7 @@
 
 SHELL:=/bin/bash
 BUILD=/lib/modules/$(shell uname -r)/build
-ccflags-y := -Wall
+ccflags-y := -std=gnu99 -Wall -Wno-declaration-after-statement
 obj-m += pretty_printk_demo.o
 
 all: license clean demo

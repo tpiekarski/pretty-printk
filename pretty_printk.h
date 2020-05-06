@@ -51,8 +51,10 @@
 	       ##args)
 
 #define pp_debug(args...) _pp_debug(args)
+#define pp_walker() _pp_debug("It worked up to this line")
 #else
 #define pp_debug(...) // no debug output
+#define pp_walker() // not walking code
 #endif
 
 #endif

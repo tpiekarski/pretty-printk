@@ -60,6 +60,7 @@ static int __init pretty_printk_demo_init(void)
 	// Output for README.md
 	pp_warn("Shortcut for severity level and flushing '\n' character");
 	pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
+	pp_walker();
 
 	return 0;
 }

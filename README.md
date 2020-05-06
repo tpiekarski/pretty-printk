@@ -23,6 +23,7 @@ inside the code and on the other one it should increase readability when running
 
 pp_warn("Shortcut for severity level and flushing '\n' character");
 pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
+pp_walker();
 
 // [...]
 ```
@@ -30,6 +31,7 @@ pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
 ```sh
 [ 8204.477771] pretty_printk_demo: "Shortcut for severity level and flushing '\n' character"
 [ 8204.477773] pretty_printk_demo (pretty_printk_demo_init @ pretty_printk_demo.c, 62): "Extended metadata while printk-ing with debug=1 or PP_DEBUG"
+[ 8204.477775] pretty_printk_demo (pretty_printk_demo_init @ pretty_printk_demo.c, 63): "It worked up to this line"
 ```
 
 For testing, playing and looking at the features the repository provides a demo module *pretty_printk_demo* to

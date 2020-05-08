@@ -1,5 +1,7 @@
 # pretty-printk
 
+[![Build Status](https://travis-ci.org/tpiekarski/pretty-printk.svg?branch=master)](https://travis-ci.org/tpiekarski/pretty-printk)
+
 [Overview](#overview) / [Usage](#usage) / [Features](#features) / [License](#license) / [Links](#links)
 
 ## [Overview](#overview)

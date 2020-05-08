@@ -1,0 +1,19 @@
+language: c
+compiler: gcc
+dist: bionic
+os: linux
+env:
+  global:
+    - MAKEFLAGS="-j $(nproc)"
+
+install:
+  - sudo apt-get update
+  - sudo apt-get install make -y "linux-headers-$(uname -r)"
+
+script:
+  - make clean
+  - make test debug=0
+  - make test debug=1
+
+notifications:
+  email: false

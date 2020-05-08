@@ -30,14 +30,13 @@ SHELL:=/bin/bash
 ccflags-y := -std=gnu99 -Wall -Wno-declaration-after-statement $(DEBUG_FLAGS)
 obj-m += pretty_printk_demo.o
 
-
 all: license clean demo
-
-demo:
-	$(MAKE) -C $(BUILD) M=$(PWD) modules
 
 clean:
 	$(MAKE) -C $(BUILD) M=$(PWD) clean
+
+demo:
+	$(MAKE) -C $(BUILD) M=$(PWD) modules
 
 license:
 	@echo -e " pretty-printk::Makefile\n\n \
@@ -51,3 +50,13 @@ license:
 	GNU General Public License for more details.\n\n \
 	You should have received a copy of the GNU General Public License\n \
 	along with pretty-printk.  If not, see <https://www.gnu.org/licenses/>.\n"
+
+test:
+	$(MAKE) license demo debug=$(debug)
+	@sudo dmesg -C
+	@sudo insmod pretty_printk_demo.ko
+	@sudo dmesg
+	@sudo rmmod pretty_printk_demo
+	$(MAKE) clean
+	
+	@echo ">> Test target with debug=$(debug) has run successfully."

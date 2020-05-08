@@ -51,7 +51,7 @@ Pretty print of multiple variables| [#6](https://github.com/tpiekarski/pretty-pr
 Walking Macro| [#7](https://github.com/tpiekarski/pretty-printk/issues/7) | [ab52416](https://github.com/tpiekarski/pretty-printk/commit/ab5241608e3c6915424e9311a4b499a843b20166) | done
 Shortcut for printing conditional expressions | [#8](https://github.com/tpiekarski/pretty-printk/issues/8) | - | todo
 Snippets for a few major editors | - | - | todo
-Generic testing pipeline with Travis CI | [#9](https://github.com/tpiekarski/pretty-printk/issues/9) | - | todo
+Generic testing pipeline with Travis CI | [#9](https://github.com/tpiekarski/pretty-printk/issues/9) | [5b459c7](https://github.com/tpiekarski/pretty-printk/commit/5b459c7db35563bf5f931c9322eb8a22fc1172f2) | done
 Testing pipeline for different major Kernel versions | [#10](https://github.com/tpiekarski/pretty-printk/issues/10) | - | todo
 Testing pipeline for different architectures | [#11](https://github.com/tpiekarski/pretty-printk/issues/11) | - | todo
 Output surrounding information | [#12](https://github.com/tpiekarski/pretty-printk/issues/12) | - | todo

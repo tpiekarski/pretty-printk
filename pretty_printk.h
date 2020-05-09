@@ -28,7 +28,8 @@
 #include <linux/kern_levels.h>
 #include <linux/printk.h>
 
-void pp_dump(int dumpc, ...);
+enum PP_DUMP_STYLE { LIST, RAW, TABLE };
+void pp_dump(enum PP_DUMP_STYLE style, ...);
 
 #define _pp(severity, format, args...)                                         \
 	printk(severity "%s: " #format "\n", THIS_MODULE->name, ##args)

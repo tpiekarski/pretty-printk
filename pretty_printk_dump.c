@@ -28,9 +28,8 @@
 
 MODULE_LICENSE("GPL");
 
-void pp_dump(int dumpc, ...)
+void pp_dump(enum PP_DUMP_STYLE style, ...)
 {
 	//todo: Implement variadic dump of variables in some pretty way...
-	printk(KERN_INFO "%s: Soon dumping %i values...", THIS_MODULE->name,
-	       dumpc);
+	printk(KERN_INFO "%s: Soon dumping x values...", THIS_MODULE->name);
 }

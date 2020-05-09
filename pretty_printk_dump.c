@@ -28,29 +28,30 @@
 
 MODULE_LICENSE("GPL");
 
-void pp_dump(enum PP_DUMP_STYLE style, char *types, ...)
+void pp_dump(char *types, ...)
 {
-	switch (style) {
-	case LIST:
-		pp_info("List style");
+	va_list args;
+	va_start(args, types);
+	int c = 0;
 
-		// todo: implement list style output
+	printk(KERN_DEBUG "%s: Dumping data\n", THIS_MODULE->name);
 
-		break;
+	while (*types != '\0') {
+		if (*types == 'd' || *types == 'i') {
+			int value = va_arg(args, int);
+			printk(KERN_DEBUG "\t%d. %d\n", ++c, value);
+		} else if (*types == 'c') {
+			int value = va_arg(args, int);
+			printk(KERN_DEBUG "\t%d. %c\n", ++c, value);
+		} else if (*types == 's') {
+			char *value = va_arg(args, char *);
+			printk(KERN_DEBUG "\t%d. %s\n", ++c, value);
+		} else {
+			printk(KERN_DEBUG "\t%d. NULL (unsupported)\n", ++c);
+		}
 
-	case TABLE:
-		pp_info("Table style");
-
-		// todo: implement table style output
-
-		break;
-
-	case RAW:
-	default:
-		pp_info("Raw (default) style");
-
-		// todo: implement raw style
-
-		break;
+		types++;
 	}
+
+	va_end(args);
 }

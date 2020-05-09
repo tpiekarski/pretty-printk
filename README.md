@@ -30,14 +30,14 @@ pp_walker();
 ```
 
 ```sh
-[ 12.300004] pretty_printk_demo: "Shortcut for severity level and flushing '\n' character"
-[ 12.300006] pretty_printk_demo (pretty_printk_demo_init @ pretty_printk_demo.c, 62): "Extended metadata while printk-ing with debug=1 or PP_DEBUG"
-[ 12.300008] pretty_printk_demo (pretty_printk_demo_init @ pretty_printk_demo.c, 63): "It worked up to this line"
+[ 12.300004] pp_demo_module: "Shortcut for severity level and flushing '\n' character"
+[ 12.300006] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 62): "Extended metadata while printk-ing with debug=1 or PP_DEBUG"
+[ 12.300008] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 63): "It worked up to this line"
 ```
 
-For testing, debugging and looking at the features the repository provides a demo module **pretty_printk_demo** to
-illustrate the different features. For building just call ```make``` and insert/remove the module in the common tools.
-Inside the [init function](https://github.com/tpiekarski/pretty-printk/blob/master/pretty_printk_demo.c#L36) all features 
+For testing, debugging and looking at the features the repository provides a demo module **pp_demo_module** to illustrate
+the different features. For building just call ```make``` and insert/remove the module in the common tools. Inside the
+[init function](https://github.com/tpiekarski/pretty-printk/blob/master/pretty_printk_demo.c#L36) all features
 are demonstrated.
 
 ## [Features](#features)

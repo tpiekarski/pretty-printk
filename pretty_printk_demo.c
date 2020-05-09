@@ -58,7 +58,9 @@ static int __init pretty_printk_demo_init(void)
 	pp_debug("Debuggin, checking arguments, %s and %i", "char", 42);
 
 	// Dumping multiple variables
-	pp_dump(LIST, 'a', "foo", 100, 5.5);
+	pp_dump(LIST, "csif", 'a', "foo", 100, 5.5);
+	pp_dump(TABLE, "csif", 'a', "foo", 100, 5.5);
+	pp_dump(RAW, "csif", 'a', "foo", 100, 5.5);
 
 	// Output for README.md
 	pp_warn("Shortcut for severity level and flushing '\n' character");

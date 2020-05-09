@@ -28,8 +28,29 @@
 
 MODULE_LICENSE("GPL");
 
-void pp_dump(enum PP_DUMP_STYLE style, ...)
+void pp_dump(enum PP_DUMP_STYLE style, char *types, ...)
 {
-	//todo: Implement variadic dump of variables in some pretty way...
-	printk(KERN_INFO "%s: Soon dumping x values...", THIS_MODULE->name);
+	switch (style) {
+	case LIST:
+		pp_info("List style");
+
+		// todo: implement list style output
+
+		break;
+
+	case TABLE:
+		pp_info("Table style");
+
+		// todo: implement table style output
+
+		break;
+
+	case RAW:
+	default:
+		pp_info("Raw (default) style");
+
+		// todo: implement raw style
+
+		break;
+	}
 }

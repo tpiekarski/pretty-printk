@@ -29,7 +29,7 @@
 #include <linux/printk.h>
 
 enum PP_DUMP_STYLE { LIST, RAW, TABLE };
-void pp_dump(enum PP_DUMP_STYLE style, ...);
+void pp_dump(enum PP_DUMP_STYLE style, char *types, ...);
 
 #define _pp(severity, format, args...)                                         \
 	printk(severity "%s: " #format "\n", THIS_MODULE->name, ##args)

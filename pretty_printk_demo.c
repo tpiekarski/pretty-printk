@@ -57,9 +57,13 @@ static int __init pretty_printk_demo_init(void)
 	pp_debug("Debugging severity");
 	pp_debug("Debuggin, checking arguments, %s and %i", "char", 42);
 
-	// Output for README.md
 	pp_warn("Shortcut for severity level and flushing '\n' character");
 	pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
+
+	// Dumping multiple variables with valid type specifiers
+	// i: integer, c: character, s: character array (string)
+	pp_dump("ics", 10, 'a', "some char array");
+
 	pp_walker();
 
 	return 0;

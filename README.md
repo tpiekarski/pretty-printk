@@ -47,12 +47,12 @@ are demonstrated.
 
 ## [Features](#features)
 
-Feature|Issue|PR|Status
+Feature|Issue|Merge Commit|Status
 ---|---|---|---
 Metadata when printk-ing| [#3](https://github.com/tpiekarski/pretty-printk/issues/3) | [7fcb473](https://github.com/tpiekarski/pretty-printk/commit/7fcb4734ef52453069d364074a28a5c6273242f6) | done
 Severity shortcuts| [#4](https://github.com/tpiekarski/pretty-printk/issues/4) | [3dfc02d](https://github.com/tpiekarski/pretty-printk/commit/3dfc02d468fdc9c401f3b24c3c3b9a15b3043bce) | done
 Switch for debugging| [#5](https://github.com/tpiekarski/pretty-printk/issues/5) | [62be4d5](https://github.com/tpiekarski/pretty-printk/commit/62be4d5c13a6e5bb1de8cc8e2a8fc95c28b7cf53) | done
-Pretty print of multiple variables| [#6](https://github.com/tpiekarski/pretty-printk/issues/6) | - | todo
+Pretty print of multiple variables| [#6](https://github.com/tpiekarski/pretty-printk/issues/6) | [e11d951](https://github.com/tpiekarski/pretty-printk/commit/e11d951551ff51835290e3465936acfade182025) | done
 Walking Macro| [#7](https://github.com/tpiekarski/pretty-printk/issues/7) | [ab52416](https://github.com/tpiekarski/pretty-printk/commit/ab5241608e3c6915424e9311a4b499a843b20166) | done
 Shortcut for printing conditional expressions | [#8](https://github.com/tpiekarski/pretty-printk/issues/8) | - | todo
 Snippets for a few major editors | - | - | todo

@@ -30,6 +30,7 @@ MODULE_LICENSE("GPL");
 
 void pp_dump(char *types, ...)
 {
+#ifdef PP_DEBUG
 	va_list args;
 	va_start(args, types);
 	int c = 0;
@@ -37,7 +38,7 @@ void pp_dump(char *types, ...)
 	printk(KERN_DEBUG "%s: Dumping data\n", THIS_MODULE->name);
 
 	while (*types != '\0') {
-		if (*types == 'd' || *types == 'i') {
+		if (*types == 'i') {
 			int value = va_arg(args, int);
 			printk(KERN_DEBUG "\t%d. %d\n", ++c, value);
 		} else if (*types == 'c') {
@@ -54,4 +55,7 @@ void pp_dump(char *types, ...)
 	}
 
 	va_end(args);
+#else
+// nothing to dump
+#endif
 }

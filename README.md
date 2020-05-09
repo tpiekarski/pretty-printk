@@ -24,6 +24,7 @@ other one it should increase readability when running dmesg.
 
 pp_warn("Shortcut for severity level and flushing '\n' character");
 pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
+pp_dump("ics", 10, 'a', "some char array");
 pp_walker();
 
 // [...]
@@ -32,7 +33,11 @@ pp_walker();
 ```sh
 [ 12.300004] pp_demo_module: "Shortcut for severity level and flushing '\n' character"
 [ 12.300006] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 62): "Extended metadata while printk-ing with debug=1 or PP_DEBUG"
-[ 12.300008] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 63): "It worked up to this line"
+[ 12.300010] pp_demo_module: Dumping data
+[ 12.300011]  1. 10
+[ 12.300012]  2. a
+[ 12.300013]  3. some char array
+[ 12.300015] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 63): "It worked up to this line"
 ```
 
 For testing, debugging and looking at the features the repository provides a demo module **pp_demo_module** to illustrate

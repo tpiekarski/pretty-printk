@@ -31,7 +31,7 @@
 void pp_dump(char *types, ...);
 
 #define _pp(severity, format, args...)                                         \
-	printk(severity "%s: " #format "\n", THIS_MODULE->name, ##args)
+	printk(severity "%s: " format "\n", THIS_MODULE->name, ##args)
 
 #define pp_emerg(args...) _pp(KERN_EMERG, args)
 #define pp_alert(args...) _pp(KERN_ALERT, args)
@@ -48,9 +48,8 @@ void pp_dump(char *types, ...);
 #define __FILENAME__                                                           \
 	(strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 #define _pp_debug(format, args...)                                             \
-	printk(KERN_DEBUG "%s (%s @ %s, %i): " #format "\n",                   \
-	       THIS_MODULE->name, __FUNCTION__, __FILENAME__, __LINE__,        \
-	       ##args)
+	printk(KERN_DEBUG "%s (%s @ %s, %i): " format "\n", THIS_MODULE->name, \
+	       __FUNCTION__, __FILENAME__, __LINE__, ##args)
 
 #define pp_debug(args...) _pp_debug(args)
 #define pp_walker() _pp_debug("It worked up to this line")

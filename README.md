@@ -31,13 +31,13 @@ pp_walker();
 ```
 
 ```sh
-[ 12.300004] pp_demo_module: "Shortcut for severity level and flushing '\n' character"
-[ 12.300006] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 62): "Extended metadata while printk-ing with debug=1 or PP_DEBUG"
+[ 12.300004] pp_demo_module: Shortcut for severity level and flushing '\n' character
+[ 12.300006] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 61): Extended metadata while printk-ing with debug=1 or PP_DEBUG
 [ 12.300010] pp_demo_module: Dumping data
 [ 12.300011]  1. 10
 [ 12.300012]  2. a
 [ 12.300013]  3. some char array
-[ 12.300015] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 63): "It worked up to this line"
+[ 12.300015] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 67): "It worked up to this line"
 ```
 
 For testing, debugging and looking at the features the repository provides a demo module **pp_demo_module** to illustrate
@@ -55,14 +55,11 @@ Switch for debugging| [#5](https://github.com/tpiekarski/pretty-printk/issues/5)
 Pretty print of multiple variables| [#6](https://github.com/tpiekarski/pretty-printk/issues/6) | [e11d951](https://github.com/tpiekarski/pretty-printk/commit/e11d951551ff51835290e3465936acfade182025) | done
 Walking Macro| [#7](https://github.com/tpiekarski/pretty-printk/issues/7) | [ab52416](https://github.com/tpiekarski/pretty-printk/commit/ab5241608e3c6915424e9311a4b499a843b20166) | done
 Shortcut for printing conditional expressions | [#8](https://github.com/tpiekarski/pretty-printk/issues/8) | - | todo
-Snippets for a few major editors | - | - | todo
 Generic testing pipeline with Travis CI | [#9](https://github.com/tpiekarski/pretty-printk/issues/9) | [5b459c7](https://github.com/tpiekarski/pretty-printk/commit/5b459c7db35563bf5f931c9322eb8a22fc1172f2) | done
 Testing pipeline for different major Kernel versions | [#10](https://github.com/tpiekarski/pretty-printk/issues/10) | - | todo
 Testing pipeline for different architectures | [#11](https://github.com/tpiekarski/pretty-printk/issues/11) | - | todo
-Output surrounding information | [#12](https://github.com/tpiekarski/pretty-printk/issues/12) | - | todo
 Convenient throttling of printk | [#13](https://github.com/tpiekarski/pretty-printk/issues/13) | - | todo
 Colorize output | [#14](https://github.com/tpiekarski/pretty-printk/issues/14) | - | todo
-Little Banners | [#15](https://github.com/tpiekarski/pretty-printk/issues/15) | - | todo
 
 ## [License](#license)
 
@@ -79,4 +76,5 @@ If not, see [<https://www.gnu.org/licenses/>](https://www.gnu.org/licenses/).
 ## [Links](#links)
 
 - GNU, GCC, [The C Preprocessor](https://gcc.gnu.org/onlinedocs/cpp/index.html#SEC_Contents)
-- Stack Overflow, [__FILE__ macro shows full path](https://stackoverflow.com/questions/8487986/file-macro-shows-full-path)
+- Stack Overflow, [\_\_FILE\_\_ macro shows full path](https://stackoverflow.com/questions/8487986/file-macro-shows-full-path)
+- Stack Overflow, [How to avoid quotes in shortcut-ed printk...](https://stackoverflow.com/questions/61747599/how-to-avoid-quotes-in-shortcut-ed-printk-macros-inside-linux-kernel-mod)

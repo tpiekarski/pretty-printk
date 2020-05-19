@@ -54,8 +54,8 @@ pp_walker();
 [ 12.300011]  1. 10
 [ 12.300012]  2. a
 [ 12.300013]  3. some char array
-[ 12.300015] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 71): x_pos <= x is true
-[ 12.300017] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 76): It worked up to this line
+[ 12.300015] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 72): x_pos <= x is true
+[ 12.300017] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 79): It worked up to this line
 ```
 
 For testing, debugging and looking at the features the repository provides a demo module **pp_demo_module** to illustrate

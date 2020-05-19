@@ -50,12 +50,20 @@ void pp_dump(char *types, ...);
 #define _pp_debug(format, args...)                                             \
 	printk(KERN_DEBUG "%s (%s @ %s, %i): " format "\n", THIS_MODULE->name, \
 	       __FUNCTION__, __FILENAME__, __LINE__, ##args)
+#define _pp_condition(condition, result)                                       \
+	printk(KERN_DEBUG "%s (%s @ %s, %i): %s is %s\n", THIS_MODULE->name,   \
+	       __FUNCTION__, __FILENAME__, __LINE__, condition, result)
 
 #define pp_debug(args...) _pp_debug(args)
 #define pp_walker() _pp_debug("It worked up to this line")
+#define pp_true(condition) _pp_condition(condition, "true")
+#define pp_false(condition) _pp_condition(condition, "false")
+
 #else
 #define pp_debug(...) // no debug output
 #define pp_walker() // not walking code
+#define pp_true(...) // no debug output
+#define pp_false(...) // no debug output
 #endif
 
 #endif

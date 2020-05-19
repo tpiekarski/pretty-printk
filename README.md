@@ -25,6 +25,23 @@ other one it should increase readability when running dmesg.
 pp_warn("Shortcut for severity level and flushing '\n' character");
 pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
 pp_dump("ics", 10, 'a', "some char array");
+
+// [...]
+
+// x_pos = // getting a current position
+// x = // a maximum of something not yet understood
+
+if (x_pos <= x) {
+  pp_true("x_pos <= x");
+  // [...]
+} else {
+  pp_false("x_pos <= x");
+
+  // [...]
+
+  goto out;
+}
+
 pp_walker();
 
 // [...]
@@ -37,7 +54,8 @@ pp_walker();
 [ 12.300011]  1. 10
 [ 12.300012]  2. a
 [ 12.300013]  3. some char array
-[ 12.300015] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 67): "It worked up to this line"
+[ 12.300015] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 72): x_pos <= x is true
+[ 12.300017] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 79): It worked up to this line
 ```
 
 For testing, debugging and looking at the features the repository provides a demo module **pp_demo_module** to illustrate
@@ -54,7 +72,7 @@ Severity shortcuts| [#4](https://github.com/tpiekarski/pretty-printk/issues/4) |
 Switch for debugging| [#5](https://github.com/tpiekarski/pretty-printk/issues/5) | [62be4d5](https://github.com/tpiekarski/pretty-printk/commit/62be4d5c13a6e5bb1de8cc8e2a8fc95c28b7cf53) | done
 Pretty print of multiple variables| [#6](https://github.com/tpiekarski/pretty-printk/issues/6) | [e11d951](https://github.com/tpiekarski/pretty-printk/commit/e11d951551ff51835290e3465936acfade182025) | done
 Walking Macro| [#7](https://github.com/tpiekarski/pretty-printk/issues/7) | [ab52416](https://github.com/tpiekarski/pretty-printk/commit/ab5241608e3c6915424e9311a4b499a843b20166) | done
-Shortcut for printing conditional expressions | [#8](https://github.com/tpiekarski/pretty-printk/issues/8) | - | todo
+Shortcut for discovering conditional expressions | [#8](https://github.com/tpiekarski/pretty-printk/issues/8) | - | todo
 Generic testing pipeline with Travis CI | [#9](https://github.com/tpiekarski/pretty-printk/issues/9) | [5b459c7](https://github.com/tpiekarski/pretty-printk/commit/5b459c7db35563bf5f931c9322eb8a22fc1172f2) | done
 Testing pipeline for different major Kernel versions | [#10](https://github.com/tpiekarski/pretty-printk/issues/10) | - | todo
 Testing pipeline for different architectures | [#11](https://github.com/tpiekarski/pretty-printk/issues/11) | - | todo

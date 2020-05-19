@@ -64,9 +64,26 @@ static int __init pretty_printk_demo_init(void)
 	// i: integer, c: character, s: character array (string)
 	pp_dump("ics", 10, 'a', "some char array");
 
+	// Shortcut-ed output of condition for tracing not-yet-understood logic
+	int x_pos = 16;
+	int x = 64;
+
+	if (x_pos <= x) {
+		pp_true("x_pos <= x");
+	} else {
+		pp_false("x_pos <= x");
+
+		goto out;
+	}
+
 	pp_walker();
 
 	return 0;
+
+out:
+	pp_debug("This should not have happened... :(");
+
+	return 1;
 }
 module_init(pretty_printk_demo_init);
 

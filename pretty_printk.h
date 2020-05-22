@@ -30,6 +30,15 @@
 
 void pp_dump(char *types, ...);
 
+#undef _pp
+#undef pp_emerg
+#undef pp_alert
+#undef pp_crit
+#undef pp_err
+#undef pp_warn
+#undef pp_note
+#undef pp_info
+
 #define _pp(severity, format, args...)                                         \
 	printk(severity "%s: " format "\n", THIS_MODULE->name, ##args)
 
@@ -41,10 +50,17 @@ void pp_dump(char *types, ...);
 #define pp_note(args...) _pp(KERN_NOTICE, args)
 #define pp_info(args...) _pp(KERN_INFO, args)
 
-#undef _pp_debug
 #undef pp_debug
+#undef pp_walker
+#undef pp_true
+#undef pp_false
 
 #ifdef PP_DEBUG
+
+#undef __FILENAME__
+#undef _pp_debug
+#undef _pp_condition
+
 #define __FILENAME__                                                           \
 	(strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 #define _pp_debug(format, args...)                                             \

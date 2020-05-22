@@ -36,7 +36,7 @@ MODULE_VERSION("0.1");
 static int __init pretty_printk_demo_init(void)
 {
 	// External macros for shortcutting severity levels
-	// Common Metadata (module name)
+	// ---
 	pp_emerg("Emergency severity");
 	pp_crit("Critical severity");
 	pp_err("Error severity");
@@ -45,6 +45,7 @@ static int __init pretty_printk_demo_init(void)
 	pp_info("Information severity");
 
 	// Appending multiple arguments
+	// ---
 	pp_emerg("Emergency, checking arguments, %s and %i", "AAA", 11);
 	pp_crit("Critical, checking arguments, %s and %i", "BBB", 22);
 	pp_err("Error, checking arguments, %s and %i", "CCC", 33);
@@ -52,19 +53,31 @@ static int __init pretty_printk_demo_init(void)
 	pp_note("Notice, checking arguments, %s and %i", "EEE", 55);
 	pp_info("Information, checking arguments, %s and %i", "FFF", 66);
 
-	// Extended Metadata (function, filename and line number)
-	// pp_debug will only print when _PP_DEBUG is defined
-	pp_debug("Debugging severity");
-	pp_debug("Debuggin, checking arguments, %s and %i", "char", 42);
-
 	pp_warn("Shortcut for severity level and flushing '\\n' character");
+
+	// Extended Metadata (function, filename and line number)
+	// pp_debug will only print when PP_DEBUG is defined
+	// ---
 	pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
 
 	// Dumping multiple variables with valid type specifiers
 	// i: integer, c: character, s: character array (string)
+	// ---
 	pp_dump("ics", 10, 'a', "some char array");
 
+	// Walking through code
+	// ---
+	pp_walker();
+
+	// Color Output
+	// pp_<color> will only colorize when either PP_COLORS is defined
+	// ---
+	pp_info("Colorize dmesg output with colors=1 or PP_COLORS");
+	pp_info("Example colors: %s, %s, %s... and a few more.", pp_red("red"),
+		pp_green("green"), pp_blue("blue"));
+
 	// Shortcut-ed output of condition for tracing not-yet-understood logic
+	// ---
 	int x_pos = 16;
 	int x = 64;
 
@@ -75,8 +88,6 @@ static int __init pretty_printk_demo_init(void)
 
 		goto out;
 	}
-
-	pp_walker();
 
 	return 0;
 

@@ -20,31 +20,45 @@ other one it should increase readability when running dmesg.
 ```c
 #include "pretty_printk.h"
 
-// [...]
-
-pp_warn("Shortcut for severity level and flushing '\n' character");
-pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
-pp_dump("ics", 10, 'a', "some char array");
-
-// [...]
-
-// x_pos = // getting a current position
-// x = // a maximum of something not yet understood
-
-if (x_pos <= x) {
-  pp_true("x_pos <= x");
-  // [...]
-} else {
-  pp_false("x_pos <= x");
-
   // [...]
 
-  goto out;
-}
+  pp_warn("Shortcut for severity level and flushing '\\n' character");
 
-pp_walker();
+  // Extended Metadata (function, filename and line number)
+  // pp_debug will only print when PP_DEBUG is defined
+  // ---
+  pp_debug("Extended metadata while printk-ing with debug=1 or PP_DEBUG");
 
-// [...]
+  // Dumping multiple variables with valid type specifiers
+  // i: integer, c: character, s: character array (string)
+  // ---
+  pp_dump("ics", 10, 'a', "some char array");
+
+  // Walking through code
+  // ---
+  pp_walker();
+
+  // Color Output
+  // pp_<color> will only colorize when either PP_COLORS is defined
+  // ---
+  pp_info("Colorize dmesg output with colors=1 or PP_COLORS");
+  pp_info("Example colors: %s, %s, %s... and a few more.", pp_red("red"),
+  pp_green("green"), pp_blue("blue"));
+
+  // Shortcut-ed output of condition for tracing not-yet-understood logic
+  // ---
+  int x_pos = 16;
+  int x = 64;
+
+  if (x_pos <= x) {
+    pp_true("x_pos <= x");
+  } else {
+    pp_false("x_pos <= x");
+
+    goto out;
+  }
+
+   // [...]
 ```
 
 ```sh
@@ -54,8 +68,10 @@ pp_walker();
 [ 12.300011]  1. 10
 [ 12.300012]  2. a
 [ 12.300013]  3. some char array
-[ 12.300015] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 72): x_pos <= x is true
-[ 12.300017] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 79): It worked up to this line
+[ 12.300015] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 70): It worked up to this line
+[ 12.300017] pp_demo_module: Colorize dmesg output with colors=1 or PP_COLORS
+[ 12.300018] pp_demo_module: Example colors: red, green, blue... and a few more. Yes, colors are in the output, but not in this README :)
+[ 12.300019] pp_demo_module (pretty_printk_demo_init @ pretty_printk_demo.c, 85): x_pos <= x is true
 ```
 
 For testing, debugging and looking at the features the repository provides a demo module **pp_demo_module** to illustrate
@@ -93,6 +109,7 @@ If not, see [<https://www.gnu.org/licenses/>](https://www.gnu.org/licenses/).
 
 ## [Links](#links)
 
+- FLOZz' MISC, [Colors and formatting (ANSI/VT100 Control sequences)](https://misc.flogisoft.com/bash/tip_colors_and_formatting)
 - GNU, GCC, [The C Preprocessor](https://gcc.gnu.org/onlinedocs/cpp/index.html#SEC_Contents)
 - Stack Overflow, [\_\_FILE\_\_ macro shows full path](https://stackoverflow.com/questions/8487986/file-macro-shows-full-path)
 - Stack Overflow, [How to avoid quotes in shortcut-ed printk...](https://stackoverflow.com/questions/61747599/how-to-avoid-quotes-in-shortcut-ed-printk-macros-inside-linux-kernel-mod)

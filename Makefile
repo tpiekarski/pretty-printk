@@ -20,14 +20,14 @@
 # You should have received a copy of the GNU General Public License
 # along with pretty-printk. If not, see <https://www.gnu.org/licenses/>.
 # 
-#
 
 SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
+include $(SELF_DIR)/colors.mk
 include $(SELF_DIR)/debug.mk
 
 BUILD=/lib/modules/$(shell uname -r)/build
 SHELL:=/bin/bash
-ccflags-y := -I$(SELF_DIR) -std=gnu99 -Wall -Wno-declaration-after-statement $(DEBUG_FLAGS)
+ccflags-y := -I$(SELF_DIR) -std=gnu99 -Wall -Wno-declaration-after-statement $(DEBUG_FLAGS) $(COLORS)
 
 pp_demo_module-objs :=  pretty_printk_dump.o pretty_printk_demo.o
 obj-m := pp_demo_module.o
@@ -55,7 +55,7 @@ license:
 
 test:
 	$(eval module=pp_demo_module)
-	$(MAKE) license demo debug=$(debug)
+	$(MAKE) license demo colors=$(colors) debug=$(debug)
 	@sudo dmesg -C
 	@sudo insmod $(module).ko
 	@sudo dmesg

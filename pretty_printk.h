@@ -66,4 +66,57 @@ void pp_dump(char *types, ...);
 #define pp_false(...) // no debug output
 #endif
 
+#undef pp_black
+#undef pp_blue_light
+#undef pp_blue
+#undef pp_cyan_light
+#undef pp_cyan
+#undef pp_gray_light
+#undef pp_gray
+#undef pp_green_light
+#undef pp_green
+#undef pp_magenta_light
+#undef pp_magenta
+#undef pp_red_light
+#undef pp_red
+#undef pp_white
+#undef pp_yellow_light
+#undef pp_yellow
+
+#ifdef PP_COLORS
+#define pp_black(arg) "\e[30m" arg "\e[0m"
+#define pp_blue_light(arg) "\e[94m" arg "\e[0m"
+#define pp_blue(arg) "\e[34m" arg "\e[0m"
+#define pp_cyan_light(arg) "\e[96m" arg "\e[0m"
+#define pp_cyan(arg) "\e[36m" arg "\e[0m"
+#define pp_gray_light(arg) "\e[37m" arg "\e[0m"
+#define pp_gray(arg) "\e[90m" arg "\e[0m"
+#define pp_green_light(arg) "\e[92m" arg "\e[0m"
+#define pp_green(arg) "\e[32m" arg "\e[0m"
+#define pp_magenta_light(arg) "\e[95m" arg "\e[0m"
+#define pp_magenta(arg) "\e[35m" arg "\e[0m"
+#define pp_red_light(arg) "\e[91m" arg "\e[0m"
+#define pp_red(arg) "\e[31m" arg "\e[0m"
+#define pp_white(arg) "\e[97m" arg "\e[0m"
+#define pp_yellow_light(arg) "\e[93m" arg "\e[0m"
+#define pp_yellow(arg) "\e[33m" arg "\e[0m"
+#else
+#define pp_black(arg) arg
+#define pp_blue_light(arg) arg
+#define pp_blue(arg) arg
+#define pp_cyan_light(arg) arg
+#define pp_cyan(arg) arg
+#define pp_gray_light(arg) arg
+#define pp_gray(arg) arg
+#define pp_green_light(arg) arg
+#define pp_green(arg) arg
+#define pp_magenta_light(arg) arg
+#define pp_magenta(arg) arg
+#define pp_red_light(arg) arg
+#define pp_red(arg) arg
+#define pp_white(arg) arg
+#define pp_yellow_light(arg) arg
+#define pp_yellow(arg) arg
+#endif
+
 #endif

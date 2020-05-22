@@ -1,5 +1,5 @@
 #
-# pretty-printk::Debug Makefile Include
+# pretty-printk::Colors Makefile Include
 # <https://github.com/tpiekarski/pretty-printk>
 # ---
 # Copyright 2020 Thomas Piekarski <t.piekarski@deloquencia.de>
@@ -22,13 +22,11 @@
 # 
 
 #
-# Pass debug=1 to enable debugging output (make debug=1).
+# Pass colors=1 to enable colorized output (make colors=1).
 #
 
-debug = 0
+colors = 0
 
-ifeq ($(debug),1)
-	DEBUG_FLAGS = -O -g -DPP_DEBUG
-else
-	DEBUG_FLAGS = -O2
+ifeq ($(colors), 1)
+	COLORS = -DPP_COLORS
 endif

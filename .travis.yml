@@ -12,6 +12,8 @@ install:
 
 script:
   - make clean
+  - make test colors=0
+  - make test colors=1
   - make test debug=0
   - make test debug=1
 

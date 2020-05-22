@@ -64,6 +64,13 @@ static int __init pretty_printk_demo_init(void)
 	// i: integer, c: character, s: character array (string)
 	pp_dump("ics", 10, 'a', "some char array");
 
+	pp_walker();
+
+	// Color Output
+	pp_info("Colorize dmesg output when PP_COLORS is defined");
+	pp_info("Example colors: %s, %s, %s... and a few more.", pp_red("red"),
+		pp_green("green"), pp_blue("blue"));
+
 	// Shortcut-ed output of condition for tracing not-yet-understood logic
 	int x_pos = 16;
 	int x = 64;
@@ -75,8 +82,6 @@ static int __init pretty_printk_demo_init(void)
 
 		goto out;
 	}
-
-	pp_walker();
 
 	return 0;
 

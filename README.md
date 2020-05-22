@@ -93,7 +93,7 @@ Generic testing pipeline with Travis CI | [#9](https://github.com/tpiekarski/pre
 Testing pipeline for different major Kernel versions | [#10](https://github.com/tpiekarski/pretty-printk/issues/10) | - | todo
 Testing pipeline for different architectures | [#11](https://github.com/tpiekarski/pretty-printk/issues/11) | - | todo
 Convenient throttling of printk | [#13](https://github.com/tpiekarski/pretty-printk/issues/13) | - | todo
-Colorize output | [#14](https://github.com/tpiekarski/pretty-printk/issues/14) | - | todo
+Colorize output | [#14](https://github.com/tpiekarski/pretty-printk/issues/14) | [530fa57](https://github.com/tpiekarski/pretty-printk/commit/530fa57fe7f55cb000c17687661b563abf5683e4) | done
 
 ## [License](#license)
 
